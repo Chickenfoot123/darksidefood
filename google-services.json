@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "899865022196",
+    "firebase_url": "https://tutorial-72016.firebaseio.com",
+    "project_id": "tutorial-72016",
+    "storage_bucket": "tutorial-72016.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:899865022196:android:73400b5092abb90f",
+        "android_client_info": {
+          "package_name": "com.darksidefood.ionic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "899865022196-4h4ijnf8lfp12ebhmihsmsvtvmp5rnfu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmePXpeq81BUpJ0pvujCzCbRLNmIlk4RQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

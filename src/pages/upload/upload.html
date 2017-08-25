@@ -1,0 +1,10 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Upload de Arquivo</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <input type="file" (change)="atualizaArquivo($event)"/>
+  <button ion-button color="primary" (click)="enviarArquivo()">Enviar</button>
+</ion-content>

@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <div *ngIf="!autenticacao" padding>
+    <ion-title>Chat</ion-title></div>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let item of lista | async">
+      <p>{{item.texto}}</p><p>{{item.user}}</p>
+      <ion-note item-right>
+        {{item.data | date:'HH:mm'}}
+      </ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Mensagem</ion-label>
+      <ion-input type="text" [(ngModel)]="mensagem"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-item>
+    <button ion-button padding (click)="enviar()">Enviar</button>
+   </ion-item>
+</ion-content>
+
