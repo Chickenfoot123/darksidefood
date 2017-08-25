@@ -1,29 +1,42 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+      <div *ngIf="!autenticacao" padding>
+          <ion-title>Cadastro</ion-title>
+      </div>
   </ion-navbar>
 </ion-header>
- 
+
 <ion-content padding>
-    <ion-item>
-    <ion-label floating>Firstname</ion-label>
-    <ion-input type="text" [(ngModel)]="firstname"></ion-input>
-  </ion-item>
- 
+<div *ngIf="!autenticacao" padding>
+<ion-list>
   <ion-item>
-    <ion-label floating>Lastname</ion-label>
-    <ion-input type="text" [(ngModel)]="lastname"></ion-input>
+      <ion-label floating>Nome</ion-label>
+      <ion-input type="text" [(ngModel)]="nome"></ion-input>
   </ion-item>
- 
-  <button ion-button full (click)="add()">
-    insert
-  </button>
- 
-  <ion-list>
-    <ion-item *ngFor="let people of peoples">
-      {{people.firstname}} {{people.lastname}}
-    </ion-item>
-  </ion-list>
+  <ion-item>
+      <ion-label floating>CPF</ion-label>
+      <ion-input type="number" [(ngModel)]="cpf"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label >Nascimento</ion-label>
+      <ion-input type="date" [(ngModel)]="nascimento"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label floating>Cidade</ion-label>
+      <ion-input type="text" [(ngModel)]="cidade"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label floating>Apelido</ion-label>
+      <ion-input type="user" [(ngModel)]="apelido"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label floating>E-mail</ion-label>
+      <ion-input type="text" [(ngModel)]="email"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label floating>Senha</ion-label>
+      <ion-input type="password" [(ngModel)]="senha"></ion-input>
+  </ion-item>
+</ion-list>
+</div>
 </ion-content>
