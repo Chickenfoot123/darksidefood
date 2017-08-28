@@ -24,9 +24,9 @@ export class LoginPage {
   chatPage: any = ChatPage;
   cadastroPage: any = CadastroPage;
 
-  cadastrar(){
+  /*cadastrar(){
 
-    /*if (this.email == 'null')
+    if (this.email == 'null')
       console.log("Email não pode ser nulo")
     if (this.email == '')
       console.log("Email vazio.")
@@ -36,13 +36,14 @@ export class LoginPage {
       console.log(this.autenticacao); // USUÁRIO CRIADO
     }, error => {
       console.log("Erro no cadastro: "+error); // TRATAR O ERRO
-    });*/
-  }
+    });
+  }*/
 
   login(){
     this.af.auth.login({
       email: this.email,
       password: this.senha,
+
     },
     {
       provider: AuthProviders.Password,

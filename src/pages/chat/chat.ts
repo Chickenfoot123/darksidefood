@@ -21,6 +21,7 @@ export class ChatPage {
     let m = {
       texto: this.mensagem,
       data: new Date().toISOString(),
+      user: "tste"
     };
     this.lista.push(m).then(() => {
       this.mensagem = "";

@@ -5,6 +5,7 @@ import {LoginPage} from "../login/login";
 import {Platform} from 'ionic-angular';
 import { Nav, NavController} from 'ionic-angular';
 import {SQLite} from 'ionic-native';
+import { AlertController, ActionSheetController } from 'ionic-angular';
 
 @Component({
   selector: 'page-cadastro',
@@ -12,105 +13,46 @@ import {SQLite} from 'ionic-native';
 })
 
 export class CadastroPage {
-  firstname:any;
-  lastname:any;
-  peoples:any;
+    nome: string;
+    cpf: number;
+    nascimento: Date;
+    email: string;
+    telefone: number;
+    senha: string;
+    autenticacao: boolean;
+    lista: FirebaseListObservable<any>;
+
+    constructor(public navCtrl: NavController, public alertCtrl: AlertController, af: AngularFire, public at: AngularFire) {
+        this.lista = af.database.list('/' + this.email);
+        this.at.auth.subscribe(estado => {
+            this.autenticacao = estado !== null;
+          });
+      }
+
+  cadastrar(){
+    if (this.email == 'null')
+        console.log("Email não pode ser nulo")
+    if (this.email == '')
+        console.log("Email vazio.")
   
-  create() {}
-  public database: SQLite;
-   constructor(public navCtrl: NavController,platform: Platform) {
-             platform.ready().then(() => {
-             this.database = new SQLite();
-             this.database.openDatabase({
-                 name: "data.db",
-                 location: "default"
-             }).then(() => {
-                 this.database.executeSql("CREATE TABLE IF NOT EXISTS people (id INTEGER PRIMARY KEY AUTOINCREMENT, firstname TEXT, lastname TEXT)", {}).then((data) => {
-                     console.log("TABLE CREATED: ", data);
-                     this.refresh();
-                 }, (error) => {
-                     console.error("Unable to execute sql", error);
-                 })
-             }, (error) => {
-                 console.error("Unable to open database", error);
-             });
-         });
-   }
-  
-    public add() {
-         this.database.executeSql("INSERT INTO people (firstname, lastname) VALUES (?, ?)", [this.firstname,this.lastname]).then((data) => {
-             console.log("INSERTED: " + JSON.stringify(data));
-         }, (error) => {
-             console.log("ERROR: " + JSON.stringify(error.err));
-         });
-     }
-  
-     public refresh(){
-        this.database.executeSql("SELECT * FROM people", []).then((data) => {
-         let people = [];
-         if (data.rows.length > 0) {
-           for (let i = 0; i < data.rows.length; i++) {
-             people.push({
-               firstname: data.rows.item(i).firstname,
-               lastname: data.rows.item(i).lastname
-             });
-           }
-           this.peoples=people;
-           console.log(this.peoples);
-         }
-       });
-     }
+    let dados = {'email': this.email, 'password': this.senha};
+    this.at.auth.createUser(dados).then(() => {
+        console.log(this.autenticacao); // USUÁRIO CRIADO
+        this.salvar()
+      }, error => {
+        console.log("Erro no cadastro: "+error); // TRATAR O ERRO
+      });
+
+  }
+
+  salvar(){
+    let m = {
+        nome: this.nome, 
+        cpf: this.cpf,
+        nascimento: this.nascimento,
+        email: this.email,
+        data_cadastro: new Date().toISOString(),
+    };
+  }
     
 }
-
-
-/*export class HomePage {
-  firstname:any;
-  lastname:any;
-  peoples:any;
-  
-  public database: SQLite;
-   constructor(public navCtrl: NavController,platform: Platform) {
-             platform.ready().then(() => {
-             this.database = new SQLite();
-             this.database.openDatabase({
-                 name: "data.db",
-                 location: "C:\Ionic\DarksideFood"
-             }).then(() => {
-                 this.database.executeSql("CREATE TABLE IF NOT EXISTS people (id INTEGER PRIMARY KEY AUTOINCREMENT, firstname TEXT, lastname TEXT)", {}).then((data) => {
-                     console.log("TABLE CREATED: ", data);
-                     this.refresh();
-                 }, (error) => {
-                     console.error("Unable to execute sql", error);
-                 })
-             }, (error) => {
-                 console.error("Unable to open database", error);
-             });
-         });
-   }
-  
-    public add() {
-         this.database.executeSql("INSERT INTO people (firstname, lastname) VALUES (?, ?)", [this.firstname,this.lastname]).then((data) => {
-             console.log("INSERTED: " + JSON.stringify(data));
-         }, (error) => {
-             console.log("ERROR: " + JSON.stringify(error.err));
-         });
-     }
-  
-     public refresh(){
-        this.database.executeSql("SELECT * FROM people", []).then((data) => {
-         let people = [];
-         if (data.rows.length > 0) {
-           for (let i = 0; i < data.rows.length; i++) {
-             people.push({
-               firstname: data.rows.item(i).firstname,
-               lastname: data.rows.item(i).lastname
-             });
-           }
-           this.peoples=people;
-           console.log(this.peoples);
-         }
-       });
-     }
-  
- }*/

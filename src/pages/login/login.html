@@ -7,6 +7,7 @@
 <ion-content>
   <div *ngIf="autenticacao" padding>
     <button ion-button secondary [navPush]="chatPage" round>Darkside Chat</button>
+    <button ion-button secondary [navPush]="chatPage" round>Estabelecimentos</button>
   </div>
 
   <div *ngIf="!autenticacao" padding>
@@ -23,10 +24,8 @@
   </div>
 
   <div padding>
-    <button ion-button color="primary"    *ngIf="!autenticacao" (click)="cadastrar()">Cadastrar</button>
+    <button ion-button secondary [navPush]="cadastroPage" round>Cadastro</button>
     <button ion-button color="secondary"  *ngIf="!autenticacao" (click)="login()">Login</button>
     <button ion-button color="danger"     *ngIf="autenticacao"  (click)="logout()">Logout</button>
   </div>
-
-  <button ion-button secondary [navPush]="cadastroPage" round>Cadastro</button>
 </ion-content>
