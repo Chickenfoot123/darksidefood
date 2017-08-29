@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Login</ion-title>
+      <ion-title><h3><a class="light">Login</a></h3></ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -9,7 +9,6 @@
     <button ion-button secondary [navPush]="chatPage" round>Darkside Chat</button>
     <button ion-button secondary [navPush]="chatPage" round>Estabelecimentos</button>
   </div>
-
   <div *ngIf="!autenticacao" padding>
   <ion-list>
     <ion-item>
@@ -29,3 +28,4 @@
     <button ion-button color="danger"     *ngIf="autenticacao"  (click)="logout()">Logout</button>
   </div>
 </ion-content>
+
