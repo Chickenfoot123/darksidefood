@@ -14,14 +14,14 @@ export class ChatPage {
   user: string;
   
   constructor(public af: AngularFire) {
-    this.lista = af.database.list('/chat');
+    this.lista = af.database.list('/Estabelecimentos/Takêdo/chat');
   }
 
   enviar(){
     let m = {
       texto: this.mensagem,
       data: new Date().toISOString(),
-      user: "tste"
+      user: "ADMIN"
     };
     this.lista.push(m).then(() => {
       this.mensagem = "";

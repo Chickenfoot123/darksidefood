@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {AngularFire, AuthProviders, AuthMethods} from "angularfire2";
 import {ChatPage} from "../chat/chat";
 import {CadastroPage} from "../cadastro/cadastro";
+import {EstabelecimentoPage} from "../estabelecimento/estabelecimento";
 
 declare var userg: any;
 
@@ -23,6 +24,7 @@ export class LoginPage {
 
   chatPage: any = ChatPage;
   cadastroPage: any = CadastroPage;
+  estabelecimentoPage: any = EstabelecimentoPage;
 
   /*cadastrar(){
 

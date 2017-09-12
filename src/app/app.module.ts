@@ -10,6 +10,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { ChatPage } from "../pages/chat/chat";
 import { LoginPage } from "../pages/login/login";
 import {CadastroPage} from "../pages/cadastro/cadastro";
+import {EstabelecimentoPage} from "../pages/estabelecimento/estabelecimento";
 import {AngularFireModule} from "angularfire2";
 import {UploadPage} from "../pages/upload/upload";
 import { Camera } from '@ionic-native/camera';
@@ -91,7 +92,8 @@ export const firebaseConfig = {
     ChatPage,
     CadastroPage,
     LoginPage,
-    UploadPage
+    UploadPage,
+    EstabelecimentoPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -104,7 +106,8 @@ export const firebaseConfig = {
     ChatPage,
     CadastroPage,
     LoginPage,
-    UploadPage
+    UploadPage,
+    EstabelecimentoPage
   ],
   providers: [
     StatusBar,

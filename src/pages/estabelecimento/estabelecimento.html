@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+        <ion-title>Estabelecimentos</ion-title>
+  </ion-navbar>
+  <ion-list>
+      <ion-content padding>
+          <ion-list>
+            <ion-item *ngFor="let item of lista | async">
+              <p>{{item.texto}}</p><p>{{item.user}}</p>
+              <ion-note item-right>
+                {{item.data | date:'HH:mm'}}
+              </ion-note>
+            </ion-item>
+            <ion-item>
+              <ion-label floating>Mensagem</ion-label>
+              <ion-input type="text" [(ngModel)]="mensagem"></ion-input>
+            </ion-item>
+          </ion-list>
+      </ion-content>
+  </ion-list>
+</ion-header>
