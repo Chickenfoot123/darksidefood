@@ -40,7 +40,7 @@ export const firebaseConfig = {
     selector: 'page-home',
     templateUrl: 'app.html'
   })
-   
+
   export class HomePage {
    firstname:any;
    lastname:any;
@@ -120,33 +120,6 @@ export const firebaseConfig = {
     CUSTOM_ELEMENTS_SCHEMA
   ]
 })
-
-//SQlite
-/*@Component({
-  template: '<ion-nav [root]="rootPage"></ion-nav>'
-})
-export class DarksideFood {
-  rootPage: any = CadastroPage;
-
-  constructor(platform: Platform) {
-      platform.ready().then(() => {
-          //StatusBar.styleDefault();
-          let db = new SQLite();
-          db.openDatabase({
-              name: "data.db",
-              location: "default"
-          }).then(() => {
-              db.executeSql("CREATE TABLE IF NOT EXISTS pessoa (id INTEGER PRIMARY KEY AUTOINCREMENT, firstname TEXT, lastname TEXT)", {}).then((data) => {
-                  console.log("TABLE CREATED: ", data);
-              }, (error) => {
-                  console.error("Unable to execute sql", error);
-              })
-          }, (error) => {
-              console.error("Unable to open database", error);
-          });
-      });
-  }
-}*/
 
 export class AppModule {}
 

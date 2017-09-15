@@ -1,6 +1,8 @@
 <ion-header>
   <ion-navbar>
-      <ion-title><h3><a class="light">Login</a></h3></ion-title>
+      <ion-title><h3><a class="light">Login</a>
+      <button ion-button color="danger"     *ngIf="autenticacao"  (click)="logout()">Logout</button>
+    </h3></ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -23,9 +25,10 @@
   </div>
 
   <div padding>
-    <button ion-button secondary [navPush]="cadastroPage" round>Cadastro</button>
+    <button ion-button *ngIf="!autenticacao" secondary [navPush]="cadastroPage">
+        Cadastro
+    </button>
     <button ion-button color="secondary"  *ngIf="!autenticacao" (click)="login()">Login</button>
-    <button ion-button color="danger"     *ngIf="autenticacao"  (click)="logout()">Logout</button>
   </div>
   
 </ion-content>
