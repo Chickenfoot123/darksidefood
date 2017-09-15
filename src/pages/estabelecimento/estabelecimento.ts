@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
-import {LoginPage} from "../login/login";
+import {ChatPage} from "../chat/chat";
 
 @Component({
   selector: 'page-estabelecimento',
@@ -10,6 +10,8 @@ export class EstabelecimentoPage {
   lista: FirebaseListObservable<any>;
   
   constructor(public af: AngularFire) {
-    this.lista = af.database.list('/Estabelecimentos/Takêdo');
+    this.lista = af.database.list('/teste');
   }
+chatPage: any = ChatPage;
+
 }
